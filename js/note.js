@@ -4,7 +4,10 @@
     console.log("webitv2");
     return $("body").dblclick(function(e) {
       console.log("dblclick:");
-      return console.log(e.target);
+      console.log(e.target);
+      return $(e.target).append("<span id='webit-note' class='label label-info'>webitv2</span>").child().animate({
+        "margin-left": "+=100px"
+      }, "slow");
     });
   });
 

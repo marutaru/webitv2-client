@@ -12,7 +12,8 @@
   "content_scripts":[
     {
       "matches":["http://*/*"],
-      "js":["jquery.js","note.js"],
+      "js":["js/jquery.js","js/bootstrap.min.js","js/note.js"],
+      "css":["css/bootstrap.min.css","css/note.css"],
       "run_at":"document_start"
     }
   ]
