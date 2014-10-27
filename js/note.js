@@ -5,7 +5,7 @@
     return $("body").dblclick(function(e) {
       console.log("dblclick:");
       console.log(e.target);
-      return $(e.target).append("<span id='webit-note' class='label label-info'>webitv2</span>").child().animate({
+      return $(e.target).append("<span id='webit-note' class='label label-info'>webitv2</span>").children(":last").animate({
         "margin-left": "+=100px"
       }, "slow");
     });
