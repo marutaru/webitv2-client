@@ -1,3 +1,13 @@
-#note{
-  background-color:CYAN;
+
+@-webkit-keyframes webit {
+  0%{left:0px;top:0px;}
+  25%{left:25px;top:0px;}
+  50%{left:25px;top:25px;}
+  75%{left:0px;top:25px;}
+  100%{left:0px;top:0px;}
+}
+
+
+#webit-note{
+  -webkit-animation: webit 2s linear 0s infinite normal;
 }

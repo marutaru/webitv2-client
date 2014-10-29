@@ -12,7 +12,7 @@
   "content_scripts":[
     {
       "matches":["http://*/*"],
-      "js":["js/jquery.js","js/bootstrap.min.js","js/note.js"],
+      "js":["js/jquery.js","js/bootstrap.min.js","js/socket.io.js","js/note.js"],
       "css":["css/bootstrap.min.css","css/note.css"],
       "run_at":"document_start"
     }
