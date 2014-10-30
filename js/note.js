@@ -2,7 +2,6 @@
 (function() {
   $(function() {
     var socket;
-    console.log("webitv2");
     $("body").dblclick(function(e) {
       var note;
       console.log(e.target);
@@ -20,7 +19,7 @@
         offsetY: e.offsetY,
         uri: e.target.baseURI
       };
-      $("body").append("<span id='webit-note' class='label label-info'>webitv2</span>").children(":last").css("position", "absolute").css("left", "" + e.pageX + "px").css("top", "" + e.pageY + "px");
+      $("body").append("<span id='webit-note' class='label label-info'>info</span>").children(":last").css("position", "absolute").css("left", "" + e.pageX + "px").css("top", "" + e.pageY + "px");
       return socket.emit("send note", note);
     });
     socket = io.connect("http://localhost:3000");
@@ -30,7 +29,7 @@
       _results = [];
       for (_i = 0, _len = notes.length; _i < _len; _i++) {
         value = notes[_i];
-        _results.push($("body").append("<span id='webit-note' class='label label-info'>webitv2</span>").children(":last").css("position", "absolute").css("left", "" + value.pageX + "px").css("top", "" + value.pageY + "px"));
+        _results.push($("body").append("<span id='webit-note' class='label label-info'>info</span>").children(":last").css("position", "absolute").css("left", "" + value.pageX + "px").css("top", "" + value.pageY + "px"));
       }
       return _results;
     });
