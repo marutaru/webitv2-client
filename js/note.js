@@ -19,8 +19,15 @@
         offsetY: e.offsetY,
         uri: e.target.baseURI
       };
-      $("body").append("<span id='webit-note' class='label label-info'>info</span>").children(":last").css("position", "absolute").css("left", "" + e.pageX + "px").css("top", "" + e.pageY + "px");
-      return socket.emit("send note", note);
+      if (e.which === 1) {
+        console.log("left click");
+        $("body").append("<span id='webit-note' class='label label-info'>info</span>").children(":last").css("position", "absolute").css("left", "" + e.pageX + "px").css("top", "" + e.pageY + "px");
+        return socket.emit("send note", note);
+      } else if (e.which === 3) {
+        console.log("right click");
+        $("body").append("<span id='webit-note' class='label label-danger'>info</span>").children(":last").css("position", "absolute").css("left", "" + e.pageX + "px").css("top", "" + e.pageY + "px");
+        return socket.emit("send note", note);
+      }
     });
     socket = io.connect("http://localhost:3000");
     socket.emit("find notes", location.href);

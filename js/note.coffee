@@ -14,12 +14,21 @@ $ ->
       offsetX:e.offsetX
       offsetY:e.offsetY
       uri:e.target.baseURI
-    $("body").append "<span id='webit-note' class='label label-info'>info</span>"
-    .children(":last").css "position","absolute"
-    .css "left","#{e.pageX}px"
-    .css "top","#{e.pageY}px"
-    socket.emit "send note",note
-    #.children(":last").css "-webkit-animation","webit 5s linear 2s infinite alternate"
+    if e.which is 1
+      console.log "left click"
+      $("body").append "<span id='webit-note' class='label label-info'>info</span>"
+      .children(":last").css "position","absolute"
+      .css "left","#{e.pageX}px"
+      .css "top","#{e.pageY}px"
+      socket.emit "send note",note
+    else if e.which is 3
+      console.log "right click"
+      $("body").append "<span id='webit-note' class='label label-danger'>info</span>"
+      .children(":last").css "position","absolute"
+      .css "left","#{e.pageX}px"
+      .css "top","#{e.pageY}px"
+      socket.emit "send note",note
+
 
   socket = io.connect "http://localhost:3000"
   socket.emit "find notes",location.href
