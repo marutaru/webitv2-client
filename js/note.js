@@ -4,9 +4,25 @@
     var socket;
     console.log("webitv2");
     $("body").dblclick(function(e) {
+      var note;
       console.log("dblclick:");
       console.log(e.target);
-      return $(e.target).append("<span id='webit-note' class='label label-info'>webitv2</span>").children(":last").css("position", "relative");
+      console.log(":");
+      console.log(e);
+      note = {
+        time: e.timeStamp,
+        screenX: e.screenX,
+        screenY: e.screenY,
+        pageX: e.pageX,
+        pageY: e.pageY,
+        clientX: e.clientX,
+        clientY: e.clientY,
+        offsetX: e.offsetX,
+        offsetY: e.offsetY,
+        uri: e.target.baseURI
+      };
+      $("body").append("<span id='webit-note' class='label label-info'>webitv2</span>").children(":last").css("position", "absolute").css("left", "" + e.pageX + "px").css("top", "" + e.pageY + "px");
+      return socket.emit("send note", note);
     });
     return socket = io.connect("http://localhost:3000");
   });
