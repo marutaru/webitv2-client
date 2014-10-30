@@ -5,7 +5,6 @@
     console.log("webitv2");
     $("body").dblclick(function(e) {
       var note;
-      console.log("dblclick:");
       console.log(e.target);
       console.log(":");
       console.log(e);
@@ -24,7 +23,17 @@
       $("body").append("<span id='webit-note' class='label label-info'>webitv2</span>").children(":last").css("position", "absolute").css("left", "" + e.pageX + "px").css("top", "" + e.pageY + "px");
       return socket.emit("send note", note);
     });
-    return socket = io.connect("http://localhost:3000");
+    socket = io.connect("http://localhost:3000");
+    socket.emit("find notes", location.href);
+    return socket.on("send notes", function(notes) {
+      var value, _i, _len, _results;
+      _results = [];
+      for (_i = 0, _len = notes.length; _i < _len; _i++) {
+        value = notes[_i];
+        _results.push($("body").append("<span id='webit-note' class='label label-info'>webitv2</span>").children(":last").css("position", "absolute").css("left", "" + value.pageX + "px").css("top", "" + value.pageY + "px"));
+      }
+      return _results;
+    });
   });
 
 }).call(this);

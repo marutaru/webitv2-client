@@ -1,7 +1,6 @@
 $ ->
   console.log "webitv2"
   $("body").dblclick (e) ->
-    console.log "dblclick:"
     console.log e.target
     console.log ":"
     console.log e
@@ -24,3 +23,10 @@ $ ->
     #.children(":last").css "-webkit-animation","webit 5s linear 2s infinite alternate"
 
   socket = io.connect "http://localhost:3000"
+  socket.emit "find notes",location.href
+  socket.on "send notes",(notes)->
+    for value in notes
+      $("body").append "<span id='webit-note' class='label label-info'>webitv2</span>"
+      .children(":last").css "position","absolute"
+      .css "left","#{value.pageX}px"
+      .css "top","#{value.pageY}px"
