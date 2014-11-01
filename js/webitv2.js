@@ -2,19 +2,19 @@
 (function() {
   $(function() {
     var socket;
-    socket = io.connect("http://localhost:3000");
+    socket = io.connect("http://marutaru.com:3000");
     socket.emit("find recent", "hoge");
     return socket.on("send recent", function(pages) {
       var page, _i, _len, _results;
       _results = [];
       for (_i = 0, _len = pages.length; _i < _len; _i++) {
         page = pages[_i];
-        _results.push($("body").append("<div></div>").children(":last").append("<a href='" + page.uri + "'>" + page.uri + "</a>").append("<span class='label label-info'>info</span>").click(function(e) {
+        _results.push($("body").append("<div id='webitv2-page'></div>").children(":last").append("<a href='" + page.uri + "'>" + page.uri + "</a>").append("<span class='label label-info'>info</span>").click(function(e) {
           return chrome.tabs.create({
             "url": "" + e.target.href,
             "selected": true
           });
-        }).append("<span>" + page.id + "</span>"));
+        }));
       }
       return _results;
     });

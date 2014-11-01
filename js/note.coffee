@@ -31,7 +31,7 @@ $ ->
       socket.emit "send note",note
 
 
-  socket = io.connect "http://localhost:3000"
+  socket = io.connect "http://marutaru.com:3000"
   socket.emit "find notes",location.href
   socket.on "send notes",(notes)->
     for value in notes

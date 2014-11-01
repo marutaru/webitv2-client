@@ -30,7 +30,7 @@
         return socket.emit("send note", note);
       }
     });
-    socket = io.connect("http://localhost:3000");
+    socket = io.connect("http://marutaru.com:3000");
     socket.emit("find notes", location.href);
     return socket.on("send notes", function(notes) {
       var value, _i, _len, _results;
