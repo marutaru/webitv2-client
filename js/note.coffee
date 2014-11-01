@@ -14,15 +14,16 @@ $ ->
       offsetX:e.offsetX
       offsetY:e.offsetY
       uri:e.target.baseURI
+      id:e.target.id if e.target.id
     if e.which is 1
-      console.log "left click"
+      console.log "left dblclick"
       $("body").append "<span id='webit-note' class='label label-info'>info</span>"
       .children(":last").css "position","absolute"
       .css "left","#{e.pageX}px"
       .css "top","#{e.pageY}px"
       socket.emit "send note",note
     else if e.which is 3
-      console.log "right click"
+      console.log "right dblclick"
       $("body").append "<span id='webit-note' class='label label-danger'>info</span>"
       .children(":last").css "position","absolute"
       .css "left","#{e.pageX}px"

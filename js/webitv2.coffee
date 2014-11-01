@@ -6,7 +6,6 @@ $ ->
       $("body").append "<div></div>"
       .children(":last").append "<a href='#{page.uri}'>#{page.uri}</a>"
       .append "<span class='label label-info'>info</span>"
-    $("a").click (e) ->
-      console.log e
-      console.log e.target
-      chrome.tabs.create({"url":"#{e.target.href}","selected":true})
+      .click (e) ->
+        chrome.tabs.create({"url":"#{e.target.href}","selected":true})
+      .append "<span>#{page.id}</span>"

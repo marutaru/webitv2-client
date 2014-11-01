@@ -5,19 +5,18 @@
     socket = io.connect("http://localhost:3000");
     socket.emit("find recent", "hoge");
     return socket.on("send recent", function(pages) {
-      var page, _i, _len;
+      var page, _i, _len, _results;
+      _results = [];
       for (_i = 0, _len = pages.length; _i < _len; _i++) {
         page = pages[_i];
-        $("body").append("<div></div>").children(":last").append("<a href='" + page.uri + "'>" + page.uri + "</a>").append("<span class='label label-info'>info</span>");
+        _results.push($("body").append("<div></div>").children(":last").append("<a href='" + page.uri + "'>" + page.uri + "</a>").append("<span class='label label-info'>info</span>").click(function(e) {
+          return chrome.tabs.create({
+            "url": "" + e.target.href,
+            "selected": true
+          });
+        }).append("<span>" + page.id + "</span>"));
       }
-      return $("a").click(function(e) {
-        console.log(e);
-        console.log(e.target);
-        return chrome.tabs.create({
-          "url": "" + e.target.href,
-          "selected": true
-        });
-      });
+      return _results;
     });
   });
 

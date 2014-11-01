@@ -17,14 +17,15 @@
         clientY: e.clientY,
         offsetX: e.offsetX,
         offsetY: e.offsetY,
-        uri: e.target.baseURI
+        uri: e.target.baseURI,
+        id: e.target.id ? e.target.id : void 0
       };
       if (e.which === 1) {
-        console.log("left click");
+        console.log("left dblclick");
         $("body").append("<span id='webit-note' class='label label-info'>info</span>").children(":last").css("position", "absolute").css("left", "" + e.pageX + "px").css("top", "" + e.pageY + "px");
         return socket.emit("send note", note);
       } else if (e.which === 3) {
-        console.log("right click");
+        console.log("right dblclick");
         $("body").append("<span id='webit-note' class='label label-danger'>info</span>").children(":last").css("position", "absolute").css("left", "" + e.pageX + "px").css("top", "" + e.pageY + "px");
         return socket.emit("send note", note);
       }
