@@ -7,10 +7,17 @@
     <link rel='stylesheet' href='css/bootstrap.min.css'>
   </head>
   <body>
-    <select id='label'>
-      <option value='info'><span class='label label-info'>info</span></option>
-      <option value='primary'><span class='label label-primary'>primary</span></option>
-    </select>
+    <h1>Select label</h1>
+    <div>
+      <input type='radio' name='label' value='info' checked='checked'><span class='label label-info'>info</span></input>
+      <input type='radio' name='label' value='primary'><span class='label label-primary'>primary</span></input>
+      <input type='radio' name='label' value='success'><span class='label label-success'>success</span></input>
+      <input type='radio' name='label' value='warning'><span class='label label-warning'>warning</span></input>
+      <input type='radio' name='label' value='danger'><span class='label label-danger'>danger</span></input>
+    </div>
+    <div>
+      <button type='button' class='btn btn-default'>Save</button>
+    </div>
   </body>
 </html>
 
