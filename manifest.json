@@ -3,6 +3,7 @@
   "version":"0.0.2",
   "manifest_version":2,
   "description":"marutaru",
+  "options_page":"options.html",
   "browser_action":{
     "default_popup":"main.html"
   },

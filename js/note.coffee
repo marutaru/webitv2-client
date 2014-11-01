@@ -1,7 +1,5 @@
 $ ->
   $("body").dblclick (e) ->
-    console.log e.target
-    console.log ":"
     console.log e
     note =
       time:e.timeStamp

@@ -4,8 +4,6 @@
     var socket;
     $("body").dblclick(function(e) {
       var note;
-      console.log(e.target);
-      console.log(":");
       console.log(e);
       note = {
         time: e.timeStamp,
