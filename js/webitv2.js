@@ -9,7 +9,7 @@
       _results = [];
       for (_i = 0, _len = pages.length; _i < _len; _i++) {
         page = pages[_i];
-        _results.push($("body").append("<div id='webitv2-page'></div>").children(":last").append("<a href='" + page.uri + "'>" + page.uri + "</a>").append("<span class='label label-info'>info</span>").click(function(e) {
+        _results.push($("body").append("<div id='webitv2-page'></div>").children(":last").append("<a href='" + page.uri + "'>" + page.uri + "</a>").append("<span class='label label-" + page.label + "'>" + page.label + "</span>").click(function(e) {
           return chrome.tabs.create({
             "url": "" + e.target.href,
             "selected": true
