@@ -45,7 +45,7 @@ $ ->
   # receive notes
   socket.on "send notes",(notes)->
     for value in notes
-      $("body").append "<span id='webit-note' class='label label-info'>info</span>"
+      $("body").append "<span id='webit-note' class='label label-#{value.label}'>#{value.label}</span>"
       .children(":last").css "position","absolute"
       .css "left","#{value.pageX}px"
       .css "top","#{value.pageY}px"
