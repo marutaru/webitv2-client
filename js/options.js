@@ -4,13 +4,18 @@
     $(document).ready(function() {
       return chrome.storage.local.get(function(val) {
         console.log(val["label"]);
-        return $("input:radio[name='label']").val([val["label"]]);
+        console.log(val["override"]);
+        $("input:radio[name='label']").val([val["label"]]);
+        return $("input:radio[name='override']").val([val["override"]]);
       });
     });
     return $("button").click(function(e) {
       console.log($("input:radio[name='label']:checked").val());
-      return chrome.storage.local.set({
+      chrome.storage.local.set({
         "label": $("input:radio[name='label']:checked").val()
+      });
+      return chrome.storage.local.set({
+        "override": $("input:radio[name='override']:checked").val()
       });
     });
   });

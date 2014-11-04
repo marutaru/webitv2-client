@@ -2,11 +2,13 @@ $ ->
 
   # init
   label = "info"
+  override = "true"
   socket = io.connect "http://marutaru.com:3000"
   $(document).ready () ->
-    socket.emit "find notes",location.href
     chrome.storage.local.get (val) ->
       label = val["label"]
+      override = val["override"]
+      socket.emit "find notes",location.href if override is "true"
 
   # note
   $("body").dblclick (e) ->
@@ -28,11 +30,12 @@ $ ->
         label:label
         id:e.target.id if e.target.id
       console.log "left dblclick"
-      $("body").append "<span id='webit-note' class='label label-#{label}'>#{label}</span>"
-      .children(":last").css "position","absolute"
-      .css "left","#{e.pageX}px"
-      .css "top","#{e.pageY}px"
       socket.emit "send note",note
+      if override is "true"
+        $("body").append "<span id='webit-note' class='label label-#{label}'>#{label}</span>"
+        .children(":last").css "position","absolute"
+        .css "left","#{e.pageX}px"
+        .css "top","#{e.pageY}px"
 
   # receive notes
   socket.on "send notes",(notes)->
