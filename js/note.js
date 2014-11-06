@@ -32,7 +32,8 @@
           offsetY: e.offsetY,
           uri: e.target.baseURI,
           label: label,
-          id: e.target.id ? e.target.id : void 0
+          id: e.target.id ? e.target.id : void 0,
+          title: document.title
         };
         console.log("left dblclick");
         socket.emit("send note", note);

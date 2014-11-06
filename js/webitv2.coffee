@@ -4,7 +4,7 @@ $ ->
   socket.on "send recent",(pages)->
     for page in pages
       $("body").append "<div id='webitv2-page'></div>"
-      .children(":last").append "<a href='#{page.uri}'>#{page.uri}</a>"
+      .children(":last").append "<a href='#{page.uri}'>#{page.title}</a>"
       .append "<span class='label label-#{page.label}'>#{page.label}</span>"
       .click (e) ->
         chrome.tabs.create({"url":"#{e.target.href}","selected":true})

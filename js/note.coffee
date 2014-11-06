@@ -29,6 +29,7 @@ $ ->
         uri:e.target.baseURI
         label:label
         id:e.target.id if e.target.id
+        title:document.title
       console.log "left dblclick"
       socket.emit "send note",note
       if override is "true"
