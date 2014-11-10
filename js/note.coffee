@@ -45,3 +45,4 @@ $ ->
       .children(":last").css "position","absolute"
       .css "left","#{value.pageX}px"
       .css "top","#{value.pageY}px"
+      .css "z-index","9999"

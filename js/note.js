@@ -47,7 +47,7 @@
       _results = [];
       for (_i = 0, _len = notes.length; _i < _len; _i++) {
         value = notes[_i];
-        _results.push($("body").append("<span id='webit-note' class='label label-" + value.label + "'>" + value.label + "</span>").children(":last").css("position", "absolute").css("left", "" + value.pageX + "px").css("top", "" + value.pageY + "px"));
+        _results.push($("body").append("<span id='webit-note' class='label label-" + value.label + "'>" + value.label + "</span>").children(":last").css("position", "absolute").css("left", "" + value.pageX + "px").css("top", "" + value.pageY + "px").css("z-index", "9999"));
       }
       return _results;
     });
